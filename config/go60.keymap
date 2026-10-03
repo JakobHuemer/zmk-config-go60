@@ -17,12 +17,20 @@
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
+#include "includes/macros.dtsi"
+
 // layers
 #define LAYER_Base 0
 #define LAYER_Keypad 1
 #define LAYER_SymbolNav 2
 #define LAYER_Magic 3
 #define LAYER_Factory 4
+
+#define LB 0
+#define LKP 1
+#define LSN 2
+#define LM 3
+#define LF 4
 
 / {
     input_processors {
@@ -35,6 +43,9 @@
     };
 
     behaviors {
+
+        ZMK_HOMEROW_BINDINGS(hm, &kp, &kp)
+
         magic: magic {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -124,12 +135,12 @@
         compatible = "zmk,keymap";
         layer_Base {
             bindings = <
-            &kp EQUAL  &kp N1     &kp N2   &kp N3    &kp N4  &kp N5                                                      &kp N6    &kp N7     &kp N8    &kp N9    &kp N0           &kp MINUS
-              &kp TAB   &kp B      &kp L    &kp D     &kp W   &kp Z                                                       &kp Y     &kp F      &kp O     &kp U     &kp J            &kp BSLH
-              &kp ESC   &kp N      &kp R    &kp T     &kp S   &kp G                                                       &kp Y     &kp H      &kp A     &kp E     &kp I            &kp SQT
- &magic LAYER_Magic 0   &kp Q      &kp X    &kp M     &kp C   &kp V                                                       &kp K     &kp P  &kp COMMA   &kp DOT  &kp FSLH          &keypad_td
-                               &kp GRAVE  &kp DEL  &kp LSHFT                                                                      &kp LGUI   &kp LBKT  &kp RBKT
-                                                     &kp SPACE  &kp LSHFT  &kp LCTRL                    &kp LALT  &kp BSPC  &key_repeat 
+            &kp EQUAL &kp N1  &kp N2        &kp N3       &kp N4      &kp N5                     &kp N6      &kp N7      &kp N8      &kp N9      &kp N0    &kp MINUS
+            &kp TAB   &kp B   &kp L         &kp D        &kp W       &kp Z                      &kp SEMI    &kp F       &kp O       &kp U       &kp J     &kp BSLH
+            &kp ESC   &kp N   &hm LCTRL R   &hm LALT T   &hm LGUI S  &kp G                      &kp Y       &hm RGUI H  &hm RALT A  &hm RCTRL E &kp I     &kp SQT
+          &magic LM 0 &kp Q   &kp X         &kp M        &kp C       &kp V                      &kp K       &kp P       &kp COMMA   &kp DOT     &kp FSLH  &keypad_td
+                                            &kp GRAVE    &kp DEL     &kp LSHFT                  &kp BSPC    &kp LBKT    &kp RBKT
+                                                    &kp SPACE  &mo LKP  &to LB              &kp RET  &mo LSN  &key_repeat 
             >;
         };
 
@@ -140,7 +151,7 @@
                &trans  &kp LC(Y)   &kp LEFT   &kp DOWN  &kp RIGHT      &kp PG_DN                                              &kp KP_N4  &kp KP_N5   &kp KP_N6   &kp KP_PLUS  &kp KP_MULTIPLY     &kp KP_NUM
  &magic LAYER_Magic 0  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LS(LC(V))                                              &kp KP_N1  &kp KP_N2   &kp KP_N3  &kp KP_ENTER        &kp EQUAL &to LAYER_Base
                                       &none     &trans     &trans                                                                        &kp KP_N0  &kp KP_DOT      &kp BSPC
-                                                             &mo LAYER_SymbolNav  &trans  &trans              &trans  &trans  &kp KP_N0
+                                                             &mo LSN  &trans  &trans              &trans  &trans  &kp KP_N0
             >;
         };
 
@@ -181,8 +192,8 @@
 
 &cirque_rh_listener {
     input-processors = <&zip_xy_scaler 3 1>;
-    layer_2 {
-        layers = <2>;
+    layer_1 {
+        layers = <1>;
         input-processors = <&zip_xy_scaler 9 1>;
     };
 };

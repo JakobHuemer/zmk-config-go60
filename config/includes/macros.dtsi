@@ -1,0 +1,25 @@
+#define ZMK_UMLAUT(name, key) \
+    ZMK_MOD_MORPH_S(name, &um key, &ums key)
+
+
+#define ZMK_MOD_MORPH_S(name, normal, shifted) \
+    name: mod_morph__##name { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <normal>, <shifted>; \
+        mods = <(MOD_LSFT|MOD_RSFT)>; \
+    };
+
+#define ZMK_HOMEROW_BINDINGS(name, binding1, binding2) \
+    name: homerow_mods_##name { \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+        tapping-term-ms = <200>; \
+        flavor = "tap-preferred"; \
+        retro-tap; \
+        bindings = <binding1>, <binding2>; \
+        require-prior-idle-ms = <50>; \
+    };
+
+
+// add a macro that includes before clear!! yk
