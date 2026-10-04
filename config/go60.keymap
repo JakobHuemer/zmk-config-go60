@@ -133,18 +133,18 @@
 
     keymap {
         compatible = "zmk,keymap";
-        layer_Base {
+        layer_Base { /* CONFIGURED */
             bindings = <
             &kp EQUAL &kp N1  &kp N2        &kp N3       &kp N4      &kp N5                     &kp N6      &kp N7      &kp N8      &kp N9      &kp N0    &kp MINUS
             &kp TAB   &kp B   &kp L         &kp D        &kp W       &kp Z                      &kp SEMI    &kp F       &kp O       &kp U       &kp J     &kp BSLH
             &kp ESC   &kp N   &hm LCTRL R   &hm LALT T   &hm LGUI S  &kp G                      &kp Y       &hm RGUI H  &hm RALT A  &hm RCTRL E &kp I     &kp SQT
           &magic LM 0 &kp Q   &kp X         &kp M        &kp C       &kp V                      &kp K       &kp P       &kp COMMA   &kp DOT     &kp FSLH  &keypad_td
-                                            &kp GRAVE    &kp DEL     &kp LSHFT                  &kp BSPC    &kp LBKT    &kp RBKT
+                              &kp GRAVE     &kp DEL      &kp LSHFT                                          &kp BSPC    &kp LBKT    &kp RBKT
                                                     &kp SPACE  &mo LKP  &to LB              &kp RET  &mo LSN  &key_repeat 
             >;
         };
 
-        layer_Keypad {
+        layer_Keypad { /* TODO: configure this */
             bindings = <
                 &none     &kp F1     &kp F2     &kp F3     &kp F4         &kp F5                                                 &kp F6     &kp F7      &kp F8        &kp F9          &kp F10        &kp F11
                &trans      &none   &kp HOME     &kp UP    &kp END      &kp PG_UP                                              &kp KP_N7  &kp KP_N8   &kp KP_N9  &kp KP_MINUS     &kp KP_SLASH        &kp F12
@@ -155,14 +155,20 @@
             >;
         };
 
-        layer_SymbolNav {
+        layer_SymbolNav { /* CONFIGURED */
             bindings = <
-              &kp INS    &kp F1     &kp F2    &kp F3     &kp F4     &kp F5                                       &kp F6    &kp F7           &kp F8       &kp F9          &kp F10    &kp F11
-             &kp SLCK  &kp EXCL   &kp HOME    &kp UP    &kp END  &kp PG_UP                                     &kp LPAR  &kp RPAR           &kp UP    &kp PRCNT        &kp K_APP    &kp F12
-             &kp CAPS    &kp AT   &kp LEFT  &kp DOWN  &kp RIGHT  &kp PG_DN                                     &kp DLLR  &kp LEFT         &kp DOWN    &kp RIGHT  &kp PAUSE_BREAK  &kp PSCRN
- &magic LAYER_Magic 0  &kp HASH   &kp LBKT  &kp RBKT   &kp LBRC   &kp RBRC                                     &kp AMPS  &kp STAR        &kp UNDER     &kp PLUS        &kp LSHFT  &kp LCTRL
-                                 &kp CARET    &trans     &trans                                                            &trans  &kp LC(LS(TAB))  &kp LC(TAB)
-                                                            &to LAYER_Base  &trans  &trans       &trans  &trans  &trans
+                /*                  @           (               )           ;             ,     */ 
+                &none           &kp LS(SQT) &kp LPAR        &kp RPAR    &kp SEMI    &kp COMMA                       &trans  &trans      &trans      &trans      &trans  &trans
+                /*  !               {           '               "           }           ?       */
+                &kp EXCL        &kp LBRC    &kp SQT         &kp LS(N2)  &kp RBRC    &kp QMARK                       &trans  &kp LSHFT   &kp LCTRL   &kp LALT    &kp GUI &trans
+                /*  #               ^           =               _           $           *       */
+                &kp NUHS        &kp CARET   &kp EQUAL       &kp UNDER   &kp DLLR    &kp STAR                        &trans  &kp BSPC    &kp TAB     &kp SPACE   &kp RET &trans
+                /*  ~               <           |               -           >           /       */
+                &kp LS(NUHS)    &kp LT      &kp LS(NUBS)    &kp MINUS   &kp GT      &kp FSLH                        &trans  &kp DEL     &kp LS(TAB) &trans      &trans  &trans
+                                            /*  [           ]           +                       */
+                                            &kp LBKT        &kp RBKT    &kp PLUS                                            &trans      &trans      &trans
+                                                                        /*  \           .*/
+                                                                        &kp NUBS    &kp DOT     &to LB          &trans  &trans  &trans
             >;
         };
 
