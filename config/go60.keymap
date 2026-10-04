@@ -157,8 +157,8 @@
 
         layer_SymbolNav { /* CONFIGURED */
             bindings = <
-                /*                  @           (               )           ;             ,     */ 
-                &none           &kp LS(SQT) &kp LPAR        &kp RPAR    &kp SEMI    &kp COMMA                       &trans  &trans      &trans      &trans      &trans  &trans
+                /*  @           &               (               )           ;             ,     */ 
+                &kp LS(SQT)     &kp AMPS    &kp LPAR        &kp RPAR    &kp SEMI    &kp COMMA                       &trans  &trans      &trans      &trans      &trans  &trans
                 /*  !               {           '               "           }           ?       */
                 &kp EXCL        &kp LBRC    &kp SQT         &kp LS(N2)  &kp RBRC    &kp QMARK                       &trans  &kp LSHFT   &kp LCTRL   &kp LALT    &kp GUI &trans
                 /*  #               ^           =               _           $           *       */
