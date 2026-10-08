@@ -18,7 +18,7 @@
         flavor = "tap-preferred"; \
         retro-tap; \
         bindings = <binding1>, <binding2>; \
-        require-prior-idle-ms = <50>; \
+        require-prior-idle-ms = <150>; \
     };
 
 
