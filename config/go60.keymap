@@ -162,7 +162,7 @@
                 /*  !               {           '               "           }           ?       */
                 &kp EXCL        &kp LBRC    &kp SQT         &kp LS(N2)  &kp RBRC    &kp QMARK                       &trans  &kp LSHFT   &kp LCTRL   &kp LALT    &kp GUI &trans
                 /*  #               ^           =               _           $           *       */
-                &kp NUHS        &kp CARET   &kp EQUAL       &kp UNDER   &kp DLLR    &kp STAR                        &trans  &kp BSPC    &kp TAB     &kp SPACE   &kp RET &trans
+                &kp NUHS        &kp CARET   &kp EQUAL       &kp UNDER   &kp DLLR    &kp STAR                        &trans  &kp RALT(2) &kp TAB    &kp SPACE   &kp RET &trans
                 /*  ~               <           |               -           >           /       */
                 &kp LS(NUHS)    &kp LT      &kp LS(NUBS)    &kp MINUS   &kp GT      &kp FSLH                        &trans  &kp DEL     &kp LS(TAB) &trans      &trans  &trans
                                             /*  [           ]           +                       */
